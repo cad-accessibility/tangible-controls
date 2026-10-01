@@ -5,7 +5,7 @@ The slider is an Adafruit Slider Trinkey: a small circuit board with a slide kno
 ## Status
 
 - **Parts** are listed in [bom/slider.csv](../bom/slider.csv).
-- **The firmware is not in this repository yet.** It will be the `code.py` that runs on the sliders in use. See [firmware/slider-trinkey](../firmware/slider-trinkey/README.md).
+- **Firmware** is in [firmware/slider-trinkey](../firmware/slider-trinkey/README.md): the `code.py` that runs on the sliders in use.
 - **The printed bed** that the original instructions mention, which holds the board so it is easier to handle, is not in this repository yet.
 
 ## What you need
@@ -24,7 +24,7 @@ You only need to do this once per board.
 
 ## Install the firmware
 
-1. Copy `code.py` and the `lib` folder from [firmware/slider-trinkey](../firmware/slider-trinkey/README.md) onto CIRCUITPY, replacing the files there.
+1. Copy [code.py](../firmware/slider-trinkey/code.py) from `firmware/slider-trinkey` onto CIRCUITPY, replacing the `code.py` that is there. It needs no other files.
 2. Wait a few seconds. The board restarts on its own and starts sending readings.
 
 ## Connect the slider to the viewer
@@ -59,6 +59,6 @@ You only need to do this once per board.
 This section is for developers. The driver is `static/js/trinkey-slider.js` in [cad-a11y](https://github.com/cad-accessibility/cad-a11y).
 
 - The viewer offers ports with USB vendor ID `0x239A` and product ID `0x8102` first, and falls back to every port if none match.
-- The firmware prints one line per reading: `Slider: ` followed by a number from 0 to 100, then a newline.
+- The firmware prints a line about every 0.1 seconds: `Slider: ` followed by a number from 0 to 100, then a newline. The viewer ignores lines without that prefix.
 - The viewer averages every 4 readings, clamps the result to 0 to 100, and rounds it. It updates the depth when the value moves by 2 or more, and announces it after 400 ms without a change.
 - The port is a USB serial device, so the baud rate does not matter. The viewer opens it at 9600.

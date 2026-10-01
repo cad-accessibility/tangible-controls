@@ -4,32 +4,27 @@ CircuitPython firmware for the Adafruit Slider Trinkey. It reads the slide poten
 
 ## Status
 
-`code.py` is not here yet. It will be the code running on the sliders in use.
+[code.py](code.py) is the code that runs on the sliders in use, kept exactly as it runs there. The CircuitPython version it was tested with is not recorded yet.
 
-## What the firmware must do
+## What it does
 
-The viewer reads lines from the board's USB serial port. Each line is `Slider: ` followed by a number from 0 to 100, ending in a newline:
+Every 0.1 seconds it reads the potentiometer, whose raw value runs from 0 to 65535, scales it to 0 to 100, and prints `Slider: ` followed by that number. When it starts, it also prints the raw reading once on a line of its own, which the viewer ignores.
 
-```text
-Slider: 0
-Slider: 42
-Slider: 100
-```
+## What the viewer expects
 
-The details of how the viewer reads these lines are in [docs/slider.md](../../docs/slider.md#serial-format).
+The viewer reads lines from the board's USB serial port. It uses each line that starts with `Slider: ` followed by a number from 0 to 100, and ignores every other line. The details are in [docs/slider.md](../../docs/slider.md#serial-format).
 
-## Pinning versions
+## Libraries and versions
 
-Record the versions the firmware was tested with when you add or change it:
+`code.py` only uses modules built into CircuitPython (`board`, `analogio` and `time`), so there is no `lib` folder to copy and no library versions to pin.
 
-- CircuitPython: 10.3.1 is the current stable release.
-- Adafruit CircuitPython Bundle: the release you copied libraries from, for example `20260930`.
+When you test a change, record the CircuitPython version here. 10.3.1 is the current stable release.
 
-Put the libraries `code.py` imports in a `lib` folder here, copied from the bundle that matches the CircuitPython major version. Don't rely on `circup` to reproduce them: it ignores version pins in `requirements.txt` and always installs from the newest bundle.
+If a later version imports an Adafruit library, put it in a `lib` folder here, copied from the Adafruit CircuitPython Bundle release that matches the CircuitPython major version, and record both versions. Don't rely on `circup` to reproduce them: it ignores version pins in `requirements.txt` and always installs from the newest bundle.
 
 ## Licensing
 
-The firmware is BSD-3-Clause, like the rest of the code here. Two exceptions:
+The firmware is BSD-3-Clause, like the rest of the code here. Two cases need more:
 
-- If `code.py` is based on an Adafruit Learning System example, keep the SPDX copyright and license lines at its top, which name Adafruit and the MIT license. Then run `reuse download MIT` so the MIT text is in `LICENSES/`.
-- The compiled libraries in `lib` cannot hold a header. Add an annotation for `firmware/slider-trinkey/lib/**` to `REUSE.toml` with Adafruit's copyright and the MIT license.
+- Code based on an Adafruit Learning System example keeps the SPDX copyright and license lines at its top, which name Adafruit and the MIT license. Then run `reuse download MIT` so the MIT text is in `LICENSES/`.
+- Compiled libraries in a `lib` folder cannot hold a header. Give `firmware/slider-trinkey/lib/**` an annotation in `REUSE.toml` with Adafruit's copyright and the MIT license.

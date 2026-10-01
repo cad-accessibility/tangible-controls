@@ -9,7 +9,7 @@ The instructions do not depend on images. Each step can be followed with a scree
 | Device | What it does | Status |
 | --- | --- | --- |
 | [Orientation cube](docs/cube.md) | Turn a face of the cube up to switch the viewer to that standard view. It is a WitMotion WT901BLECL motion sensor inside a 3D-printed cube. | Parts list and use guide are ready. Print files and assembly steps are not published yet. |
-| [Slider](docs/slider.md) | Slide the knob to set the slice depth. It is an Adafruit Slider Trinkey running CircuitPython. | Parts list and setup guide are ready. The firmware is not here yet. |
+| [Slider](docs/slider.md) | Slide the knob to set the slice depth. It is an Adafruit Slider Trinkey running CircuitPython. | Parts list, setup guide and firmware are ready. |
 | [Tactile ViewCube](docs/gen1-viewcube.md) | The first cube, built around a GoDice die. | Archived. |
 
 Both devices need Chrome or Edge, because the viewer reaches them through Web Bluetooth and Web Serial.

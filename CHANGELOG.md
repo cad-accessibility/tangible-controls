@@ -11,6 +11,7 @@ a printed part that no longer fits the previous ones, or a different face-to-vie
 
 ### Added
 *   Parts lists for the orientation cube and the slider, each with a column describing how to tell the part apart by touch.
+*   The slider's CircuitPython firmware, as it runs on the sliders in use. It only needs CircuitPython's built-in modules.
 *   Guides to connecting and using the cube and the slider, written so every step can be followed without images, and an archive page for the first cube, the Tactile ViewCube.
 *   The cube's Onshape source, recorded in `hardware/cube/onshape.toml`. Exports are only accepted from a named Onshape version, and a check on every pull request confirms each file matches its checksum.
 *   Licenses declared with REUSE: CERN-OHL-P-2.0 for the hardware designs and parts lists, and the University of Washington's BSD-3-Clause license for everything else. Also citation and Open Know-How metadata.
