@@ -1,0 +1,18 @@
+* text=auto eol=lf
+
+# CAD exports are stored byte for byte. Line-ending conversion would change
+# their SHA-256 and fail scripts/check_exports.py. They are also marked as
+# generated, so pull request diffs collapse them by default.
+*.step binary linguist-generated
+*.stp  binary linguist-generated
+*.x_t  binary linguist-generated
+*.x_b  binary linguist-generated
+*.stl  binary linguist-generated
+*.3mf  binary linguist-generated
+SHA256SUMS -text
+
+# Images and compiled CircuitPython libraries.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.mpy binary

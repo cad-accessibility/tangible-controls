@@ -1,0 +1,32 @@
+version = 1
+SPDX-PackageName = "tangible-controls"
+SPDX-PackageSupplier = "University of Washington"
+SPDX-PackageDownloadLocation = "https://github.com/cad-accessibility/tangible-controls"
+
+# Two licenses, as in cad-a11y and a11yhood:
+#
+# - Code and documentation: BSD-3-Clause, with the University of Washington
+#   text a11yhood uses (LICENSES/BSD-3-Clause.txt).
+# - Hardware designs and parts lists: CERN-OHL-P-2.0, the permissive open
+#   hardware equivalent.
+#
+# Files that carry their own SPDX header keep it. When two annotations match
+# the same file, the later one wins, so the order below matters.
+
+# Everything, by default.
+[[annotations]]
+path = "**"
+SPDX-FileCopyrightText = "2026 University of Washington"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+# Hardware: CAD exports, their source manifests and checksums, and the BOMs.
+[[annotations]]
+path = ["hardware/**", "bom/**"]
+SPDX-FileCopyrightText = "2026 University of Washington"
+SPDX-License-Identifier = "CERN-OHL-P-2.0"
+
+# Documentation stays BSD-3-Clause, including READMEs inside hardware/.
+[[annotations]]
+path = "**.md"
+SPDX-FileCopyrightText = "2026 University of Washington"
+SPDX-License-Identifier = "BSD-3-Clause"

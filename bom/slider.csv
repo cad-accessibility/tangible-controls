@@ -1,0 +1,3 @@
+item,quantity,description,manufacturer,manufacturer_part_number,supplier,supplier_part_number,unit_price_usd,price_checked,link,identify_by_touch,notes
+Slider board,1,"Adafruit Slider Trinkey: SAMD21 board with a slide potentiometer, two RGB NeoPixels, a capacitive touch pad and a USB-A plug",Adafruit,5021,Adafruit,5021,9.95,2026-10-01,https://www.adafruit.com/product/5021,"A bare circuit board about 52 by 25 mm, with a USB-A plug at one end and a slide knob along its length.","Also Digi-Key 1528-5021-ND and Opencircuit 5021."
+USB-A to USB-C adapter,1,"Only needed if the computer has no USB-A port. It must carry data, not only power.",,,Any,,,,,,

@@ -1,0 +1,51 @@
+name: Build or setup problem
+description: Something went wrong while printing, assembling, installing firmware or connecting a device
+labels: ["build"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for building one. Tell us where you got stuck, as precisely as you can. If you add photos, describe what each one shows in its alt text.
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device
+      options:
+        - Orientation cube
+        - Slider
+        - Tactile ViewCube (generation 1)
+    validations:
+      required: true
+
+  - type: input
+    id: step
+    attributes:
+      label: Which guide and step?
+      description: For example, "docs/slider.md, Install CircuitPython, step 2".
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: setup
+    attributes:
+      label: Your setup
+      description: Fill in whatever applies.
+      placeholder: |
+        Printer and material:
+        Computer and operating system:
+        Browser and version:
+        Screen reader or other assistive technology:
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Anything else?

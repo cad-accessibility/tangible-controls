@@ -1,0 +1,11 @@
+version: 2
+updates:
+  # Keeps the SHA-pinned Actions current. Titles come out as
+  # "chore(deps): ...", which the PR title check accepts.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+      include: scope

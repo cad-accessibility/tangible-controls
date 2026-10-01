@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 University of Washington
+# SPDX-License-Identifier: BSD-3-Clause
+
+# The PR title becomes the commit message on squash merge, so it must follow
+# Conventional Commits. Same types as cad-a11y.
+name: PR title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  pr-title:
+    name: pr-title
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            style
+            refactor
+            test
+            chore
+            ci
+            build
+            perf
+            a11y
+          requireScope: false

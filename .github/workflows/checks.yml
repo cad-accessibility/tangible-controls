@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 University of Washington
+# SPDX-License-Identifier: BSD-3-Clause
+
+# Required checks for every pull request. No path filters: a required check
+# that never runs stays pending and blocks the merge.
+name: Checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reuse-lint:
+    name: reuse-lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: fsfe/reuse-action@676e2d560c9a403aa252096d99fcab3e1132b0f5 # v6.0.0
+
+  check-exports:
+    name: check-exports
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check CAD exports against their Onshape manifests
+        run: python3 scripts/check_exports.py

@@ -1,0 +1,23 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+# PEP 8 indentation for the scripts and the CircuitPython firmware.
+[*.py]
+indent_size = 4
+
+# CAD exports are written by Onshape. Never let an editor touch them.
+[*.{step,stp,x_t,x_b,stl,3mf}]
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset

@@ -1,0 +1,31 @@
+# The license field is left out on purpose. In CFF a list of licenses
+# means "any one of these", and this repository uses two licenses at
+# once: one for the hardware and one for everything else. See README.md
+# and REUSE.toml.
+cff-version: 1.2.0
+message: "If you use these designs, firmware or documentation, please cite them as below."
+title: "tangible-controls: hand-held controls for the CAD A11y viewer"
+type: software
+authors:
+  - given-names: Felix
+    family-names: Hähnlein
+    orcid: "https://orcid.org/0000-0002-3484-4004"
+  - given-names: Carlos E.
+    family-names: Tejada
+repository-code: "https://github.com/cad-accessibility/tangible-controls"
+abstract: >-
+  Open hardware input devices for CAD A11y, an accessible 3D model viewer
+  for blind and low-vision people. A 3D-printed cube with a WitMotion
+  WT901BLECL Bluetooth motion sensor switches the viewer to the standard
+  view of whichever face points up, and an Adafruit Slider Trinkey sets
+  the slice depth. The repository holds the CAD exports, parts lists,
+  firmware and text-first build instructions.
+keywords:
+  - accessibility
+  - blind
+  - low vision
+  - tangible user interface
+  - open hardware
+  - 3D printing
+  - CAD
+  - CircuitPython

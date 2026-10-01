@@ -1,0 +1,11 @@
+# Owners are asked for a review automatically when a pull request changes
+# their files. Any one approval from someone with write access is enough to
+# merge, as in cad-a11y; GOVERNANCE.md says when Felix must approve.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+*            @ctejada10
+
+# The printed parts, their parts lists and the slider firmware.
+/hardware/   @ctejada10 @Obikate
+/bom/        @ctejada10 @Obikate
+/firmware/   @ctejada10 @Obikate

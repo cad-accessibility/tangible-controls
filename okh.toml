@@ -1,0 +1,20 @@
+# Open Know-How manifest, spec 2.4:
+# https://github.com/iop-alliance/OpenKnowHow
+#
+# `version` and `release` are added with the first release. Fields with no
+# real value yet are left out, as the specification asks.
+
+okhv = "2.4"
+name = "tangible-controls"
+repo = "https://github.com/cad-accessibility/tangible-controls"
+license = "CERN-OHL-P-2.0 AND BSD-3-Clause"
+licensor = "University of Washington"
+function = "Hand-held controls for CAD A11y, an accessible 3D model viewer for blind and low-vision people. A 3D-printed cube with a WitMotion WT901BLECL Bluetooth motion sensor switches the viewer to the standard view of whichever face points up. An Adafruit Slider Trinkey sets the slice depth."
+documentation-language = "en-US"
+technology-readiness-level = "OTRL-4"
+documentation-readiness-level = "ODRL-1"
+readme = "README.md"
+contribution-guide = "CONTRIBUTING.md"
+bom = ["bom/cube.csv", "bom/slider.csv"]
+user-manual = ["docs/cube.md", "docs/slider.md"]
+source = ["https://cad.onshape.com/documents/bacc1f6ed9ff69f796727760/w/9e219d2c0ee1db9e9269d6d5"]

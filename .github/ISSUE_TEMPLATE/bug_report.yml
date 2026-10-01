@@ -1,0 +1,52 @@
+name: Bug report
+description: A device, its firmware or a repository check does the wrong thing
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: device
+    attributes:
+      label: What is affected?
+      options:
+        - Orientation cube
+        - Slider
+        - Repository checks
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        Operating system:
+        Browser and version:
+        Firmware or CircuitPython version:
+        Where the viewer was running:
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error messages or output
+      description: Paste any messages from the viewer's status line, the browser console or a terminal.
+      render: text

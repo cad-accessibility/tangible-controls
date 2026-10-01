@@ -1,0 +1,10 @@
+# macOS and Dropbox
+.DS_Store
+Icon?
+*conflicted copy*
+
+# Python
+__pycache__/
+
+# Local Claude Code settings
+.claude/
