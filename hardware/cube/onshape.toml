@@ -1,28 +1,57 @@
 # Where the cube's CAD comes from.
 #
-# The design lives in Onshape. Every file in this folder must be an export of
-# one named Onshape version, never of the live workspace, so anyone can open
-# the exact geometry that was printed. scripts/check_exports.py checks this in
-# CI. The steps and the format of [version] and [[export]] are in
+# The design lives in Onshape. Every file in this folder is an export of one
+# named Onshape version, never of the live workspace, so anyone can open the
+# exact geometry it came from. scripts/check_exports.py checks this in CI.
+# The steps and the format of [version] and [[export]] are in
 # docs/export-from-onshape.md.
 #
-# There is no [version] yet: the document has no named version, and exports
-# from the shared link are turned off. Until both change, this folder holds
-# no CAD files.
+# Print files (STL and 3MF) are not committed, because the meshes are large.
+# They are attached to the GitHub release with the same name as the version.
 
 [document]
+name = "tangible-controls cube"
+owner = "Carlos E. Tejada"
+id = "3ceaf96421d57106502c1ab5"
+# The live design. It can change at any time, so link to it for viewing only.
+url = "https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5"
+
+# This document is a copy of Felix Hähnlein's original, made on 2026-10-05 so
+# that a maintainer owns the source. The original may become private.
+[document.copied_from]
 name = "cube final"
 owner = "Felix Hähnlein"
 id = "bacc1f6ed9ff69f796727760"
-# The live design. It can change at any time, so link to it for viewing only.
-workspace = "https://cad.onshape.com/documents/bacc1f6ed9ff69f796727760/w/9e219d2c0ee1db9e9269d6d5"
 
 [[element]]
 name = "cube_final"
-id = "042012f0d09cb85f6243f4f7"
+id = "ff1e1273a308ae3b6ae2383f"
 type = "PARTSTUDIO"
 
 [[element]]
 name = "witmotion"
-id = "fae599f267904cb45f9cb451"
+id = "ef433388e0cb14178a65c066"
 type = "PARTSTUDIO"
+
+[[element]]
+name = "LICENSE"
+id = "4100c97baa53e887fff9d492"
+type = "BLOB"
+
+[version]
+name = "v0.1.0"
+id = "72041857b1e6aaada89118c8"
+created = 2026-10-05
+url = "https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5/v/72041857b1e6aaada89118c8"
+
+[[export]]
+file = "cube.x_t"
+format = "Parasolid 38.1"
+element = "cube_final"
+parts = ["upper_cube", "lower_cube"]
+
+[[export]]
+file = "cube.step"
+format = "STEP AP242, millimeters"
+element = "cube_final"
+parts = ["upper_cube", "lower_cube"]

@@ -8,7 +8,7 @@ The instructions do not depend on images. Each step can be followed with a scree
 
 | Device | What it does | Status |
 | --- | --- | --- |
-| [Orientation cube](docs/cube.md) | Turn a face of the cube up to switch the viewer to that standard view. It is a WitMotion WT901BLECL motion sensor inside a 3D-printed cube. | Parts list and use guide are ready. Print files and assembly steps are not published yet. |
+| [Orientation cube](docs/cube.md) | Turn a face of the cube up to switch the viewer to that standard view. It is a WitMotion WT901BLECL motion sensor inside a 3D-printed cube. | Parts list, use guide and design v0.1.0 are ready, with print files on the release. Assembly steps are not written yet. |
 | [Slider](docs/slider.md) | Slide the knob to set the slice depth. It is an Adafruit Slider Trinkey running CircuitPython. | Parts list, setup guide and firmware are ready. |
 | [Tactile ViewCube](docs/gen1-viewcube.md) | The first cube, built around a GoDice die. | Archived. |
 
@@ -19,13 +19,18 @@ Both devices need Chrome or Edge, because the viewer reaches them through Web Bl
 - `bom/`: parts lists, one CSV file per device.
 - `docs/`: build, setup and use guides, and the maintainers' guide to [exporting from Onshape](docs/export-from-onshape.md).
 - `firmware/`: CircuitPython firmware for the slider.
-- `hardware/`: CAD exports, one folder per device, each with a manifest that names its Onshape source.
+- `hardware/`: STEP and Parasolid exports, one folder per device, each with a manifest that names its Onshape source.
 - `scripts/`: the checks that run on every pull request.
 - `LICENSES/`: the full text of each license.
 
 ## The CAD
 
-The cube is designed in Onshape, in the document [cube final](https://cad.onshape.com/documents/bacc1f6ed9ff69f796727760/w/9e219d2c0ee1db9e9269d6d5) by Felix Hähnlein. Files under `hardware/` are exported from named Onshape versions, which cannot be changed afterwards, so each release points to the exact geometry it contains. You do not need Onshape to print or inspect the parts.
+The cube is designed in Onshape, in the public document [tangible-controls cube](https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5), a copy of Felix Hähnlein's original. Files under `hardware/` are exported from named Onshape versions, which cannot be changed afterwards, so each release points to the exact geometry it contains.
+
+You do not need Onshape to print or inspect the parts:
+
+- To print, download the STL or 3MF files from the [release](https://github.com/cad-accessibility/tangible-controls/releases).
+- To inspect or change the design in another CAD program, use the STEP or Parasolid file in `hardware/`.
 
 ## Licenses
 

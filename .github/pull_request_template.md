@@ -19,8 +19,9 @@ Delete this section if no printed part changed.
 - Onshape version: <!-- the /v/ link -->
 - What changed, in words: <!-- which part, which dimensions, and why -->
 
-- [ ] Exported from that version, and listed in `onshape.toml`
+- [ ] STEP and Parasolid exported from that version, and listed in `onshape.toml`
 - [ ] `SHA256SUMS` rewritten with `python3 scripts/check_exports.py --write-sums hardware/<device>`
+- [ ] STL and 3MF exported from the same version, kept for the release, not committed
 - [ ] Printed and fitted
 - [ ] Parts list and build guide updated
 

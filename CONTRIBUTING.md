@@ -49,7 +49,7 @@ The guides are for blind and low-vision makers first.
 
 ## Changing the hardware
 
-Follow [docs/export-from-onshape.md](docs/export-from-onshape.md). Never edit an export by hand: the `check-exports` check compares every file with its checksum and with the Onshape version it came from.
+Follow [docs/export-from-onshape.md](docs/export-from-onshape.md). Never edit an export by hand: the `check-exports` check compares every file with its checksum and with the Onshape version it came from. Commit only the STEP and Parasolid files. STL and 3MF print files go on the GitHub release, and the check rejects them in the repository.
 
 ## Changing the firmware
 

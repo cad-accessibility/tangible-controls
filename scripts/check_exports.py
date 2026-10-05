@@ -14,7 +14,8 @@ folder this script checks that:
 - SHA256SUMS lists exactly the exports, and every checksum matches.
 
 It also rejects CAD files anywhere under hardware/ that sit outside a folder
-with a manifest.
+with a manifest, and mesh files (STL, 3MF) anywhere under hardware/. Meshes
+are large, so they are attached to the GitHub release instead of committed.
 
 Run it from anywhere in the repository:
 
@@ -38,7 +39,9 @@ ROOT = Path(__file__).resolve().parent.parent
 HARDWARE = ROOT / "hardware"
 MANIFEST = "onshape.toml"
 SUMS = "SHA256SUMS"
-CAD_SUFFIXES = {".step", ".stp", ".x_t", ".x_b", ".stl", ".3mf"}
+CAD_SUFFIXES = {".step", ".stp", ".x_t", ".x_b"}
+MESH_SUFFIXES = {".stl", ".3mf"}
+MESH_HINT = "Attach STL and 3MF files to the GitHub release instead; see docs/export-from-onshape.md."
 ONSHAPE_ID = re.compile(r"[0-9a-f]{24}")
 SUM_LINE = re.compile(r"([0-9a-f]{64}) [ *](.+)")
 
@@ -125,7 +128,10 @@ def check_folder(folder: Path) -> list[str]:
             problems.append(f"{rel}/{MANIFEST}: export file {name!r} must be a plain file name in this folder.")
             continue
         exports.append(name)
-        if Path(name).suffix.lower() not in CAD_SUFFIXES:
+        suffix = Path(name).suffix.lower()
+        if suffix in MESH_SUFFIXES:
+            problems.append(f"{rel}/{MANIFEST}: export {name!r} is a mesh. {MESH_HINT}")
+        elif suffix not in CAD_SUFFIXES:
             problems.append(f"{rel}/{MANIFEST}: export {name!r} is not a CAD file ({', '.join(sorted(CAD_SUFFIXES))}).")
         if export.get("element") not in elements:
             problems.append(f"{rel}/{MANIFEST}: export {name!r} names element {export.get('element')!r}, which is not an [[element]].")
@@ -161,11 +167,16 @@ def check_folder(folder: Path) -> list[str]:
     return problems
 
 
-def stray_cad_files() -> list[str]:
+def stray_files() -> list[str]:
     problems = []
     for path in sorted(HARDWARE.rglob("*")):
-        if path.is_file() and path.suffix.lower() in CAD_SUFFIXES and not (path.parent / MANIFEST).is_file():
-            rel = path.relative_to(ROOT).as_posix()
+        if not path.is_file():
+            continue
+        rel = path.relative_to(ROOT).as_posix()
+        suffix = path.suffix.lower()
+        if suffix in MESH_SUFFIXES:
+            problems.append(f"{rel}: mesh files are not committed. {MESH_HINT}")
+        elif suffix in CAD_SUFFIXES and not (path.parent / MANIFEST).is_file():
             problems.append(f"{rel}: CAD file in a folder without {MANIFEST}.")
     return problems
 
@@ -207,7 +218,7 @@ def main() -> int:
         folders = [folder]
     else:
         folders = sorted(p.parent for p in HARDWARE.glob(f"*/{MANIFEST}"))
-        problems = stray_cad_files()
+        problems = stray_files()
         for folder in folders:
             problems.extend(check_folder(folder))
 

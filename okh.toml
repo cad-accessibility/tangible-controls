@@ -17,4 +17,8 @@ readme = "README.md"
 contribution-guide = "CONTRIBUTING.md"
 bom = ["bom/cube.csv", "bom/slider.csv"]
 user-manual = ["docs/cube.md", "docs/slider.md"]
-source = ["https://cad.onshape.com/documents/bacc1f6ed9ff69f796727760/w/9e219d2c0ee1db9e9269d6d5"]
+source = [
+  "https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5",
+  "hardware/cube/cube.step",
+  "hardware/cube/cube.x_t",
+]

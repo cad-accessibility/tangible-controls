@@ -7,8 +7,10 @@ This page is about the current cube, built around the WitMotion sensor. The earl
 ## Status
 
 - **Parts** are listed in [bom/cube.csv](../bom/cube.csv).
-- **Print files are not published yet.** They will be exported from a named version of the Onshape design, as described in [export-from-onshape.md](export-from-onshape.md).
-- **Assembly steps are not written yet.** They need the print files and a cube in hand.
+- **The cube prints as two halves,** `upper_cube` and `lower_cube`. Version v0.1.0 of the design is in [hardware/cube](../hardware/cube/onshape.toml) as STEP and Parasolid files, for CAD programs.
+- **Print files** are attached to each [release](https://github.com/cad-accessibility/tangible-controls/releases): one STL file per half, in millimeters, and a 3MF file with both halves.
+- **Several faces carry a braille label inside an oval outline,** and the faces differ in texture, for example wavy ridges on one and a grid of raised points on another. A face-by-face description is not written yet.
+- **Assembly steps are not written yet.** They need a cube in hand.
 
 ## What you need
 
