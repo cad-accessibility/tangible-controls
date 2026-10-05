@@ -1,11 +1,13 @@
 # Open Know-How manifest, spec 2.4:
 # https://github.com/iop-alliance/OpenKnowHow
 #
-# `version` and `release` are added with the first release. Fields with no
-# real value yet are left out, as the specification asks.
+# Update `version` and `release` with each release. Fields with no real value
+# yet are left out, as the specification asks.
 
 okhv = "2.4"
 name = "tangible-controls"
+version = "0.1.0"
+release = "https://github.com/cad-accessibility/tangible-controls/releases/tag/v0.1.0"
 repo = "https://github.com/cad-accessibility/tangible-controls"
 license = "CERN-OHL-P-2.0 AND BSD-3-Clause"
 licensor = "University of Washington"
