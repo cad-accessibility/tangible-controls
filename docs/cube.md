@@ -7,16 +7,49 @@ This page is about the current cube, built around the WitMotion sensor. The earl
 ## Status
 
 - **Parts** are listed in [bom/cube.csv](../bom/cube.csv).
-- **The cube prints as two halves,** `upper_cube` and `lower_cube`. Version v0.1.0 of the design is in [hardware/cube](../hardware/cube/onshape.toml) as STEP and Parasolid files, for CAD programs.
-- **Print files** are attached to each [release](https://github.com/cad-accessibility/tangible-controls/releases): one STL file per half, in millimeters, and a 3MF file with both halves.
-- **Several faces carry a braille label inside an oval outline,** and the faces differ in texture, for example wavy ridges on one and a grid of raised points on another. A face-by-face description is not written yet.
-- **Assembly steps are not written yet.** They need a cube in hand.
+- **Version v0.1.0 of the design** is in [hardware/cube](../hardware/cube/onshape.toml) as STEP and Parasolid files, for CAD programs. **Print files** are attached to each [release](https://github.com/cad-accessibility/tangible-controls/releases): one STL file per half, in millimeters, and a 3MF file with both halves.
+- **Print settings** are below, from the slicer project used to print the cubes in use.
 
 ## What you need
 
 - The parts in [bom/cube.csv](../bom/cube.csv).
+- A 3D printer that can print 0.06 mm layers. The braille and the press fits need fine detail, so the print takes a long time.
 - A computer with Chrome or Edge on Windows, macOS or ChromeOS. The viewer talks to the sensor over Web Bluetooth, which Firefox and Safari do not support.
 - On macOS, Bluetooth permission for the browser. It is in System Settings, under Privacy and Security, then Bluetooth.
+
+## The faces
+
+The cube is about 62 mm across. It prints as two halves that press together: a taller upper half with a plain, closed top, and a shorter lower half that holds the sensor.
+
+Each side face has its own texture and a braille label inside an oval outline. The label names the view the face stands for. The plus and minus signs follow the [UEB math convention](https://uebmath.aphtech.org/lesson1.3): dot 5 followed by dots 2-3-5 for plus, and dot 5 followed by dots 3-6 for minus.
+
+| Face | Texture | Braille label |
+| --- | --- | --- |
+| x+ | Raised hexagons in rows | x, then the plus sign |
+| x- | Raised hexagons in rows | x, then the minus sign |
+| y+ | Wavy vertical ridges | y, then the plus sign |
+| y- | Wavy vertical ridges | y, then the minus sign |
+| Top and bottom | Plain | Not documented yet |
+
+The textures run across the joint between the halves. A small half-round hole at the bottom of the edge where the x- and y- faces meet gives access to the sensor's power switch.
+
+## Print the halves
+
+These are the settings in the Bambu Studio project Felix Hähnlein used to print the cubes in use, on a Bambu Lab X1 Carbon:
+
+- PLA, with both halves in one color.
+- Layer height 0.06 mm, and 0.1 mm for the first layer.
+- 4 walls, 7 top layers and 5 bottom layers.
+- Infill 15%, grid pattern.
+- No supports. Brim set to automatic.
+- Seam position aligned.
+- Elephant foot compensation 0.15 mm.
+- Textured PEI plate.
+- The upper half lies upside down, with its plain top face on the plate. The lower half lies on its base, with the pocket facing up.
+
+The project is set up for a 0.2 mm nozzle, but Felix says the printer settings in it differ from the printer the cubes were printed on, so the nozzle size is unconfirmed. The settings above do not depend on the printer.
+
+Fine layers are what make the braille and the press fits come out right, so expect a long print.
 
 ## Charge the sensor
 
@@ -28,13 +61,25 @@ WitMotion documents only light signals for the sensor, so a sighted helper may n
 - A red light stays on while the battery charges and goes out when it is full.
 - A blue light flashes quickly while the sensor waits for a connection, and slowly once it is connected.
 
+## Put the cube together
+
+Charge the sensor first.
+
+1. Find the lower half: the shorter piece, with an open pocket inside and a small half-round hole at the bottom of one corner.
+2. Hold the sensor with its printed label facing up.
+3. Turn the sensor so its power switch faces the half-round hole.
+4. Lower the sensor into the pocket, so its two mounting tabs sit at the ends of the pocket and it lies flat.
+5. Feel through the hole for the power switch. If you can't reach it, lift the sensor out, turn it around and put it back.
+6. Place the upper half on top, plain face up, with hexagons over hexagons and ridges over ridges.
+7. Press the halves together until they meet all the way around. Four small press fits, half-sphere bumps at the joint, hold them closed.
+
 ## Connect the cube to the viewer
 
 1. Open the viewer in Chrome or Edge.
 2. In the Main menu, select Settings.
 3. Under Hardware Controls, check "Cube (WitMotion IMU)".
 4. Close Settings. A section headed "WitMotion IMU" now appears on the main page.
-5. Put the cube on the table with the face you want as the z+ view on top. Leave it still. The next section explains why.
+5. Put the cube on the table with its plain top face up, the closed end of the taller half. Leave it still. The next section explains why.
 6. In the WitMotion IMU section, select Connect BLE.
 7. In the browser's device list, choose the device whose name starts with WT.
 8. Wait for the viewer to say "WitMotion IMU connected."
@@ -45,7 +90,7 @@ If the device list is empty, see [Troubleshooting](#troubleshooting).
 
 The viewer measures the cube's tilt from a reference position. The reference is the cube's position in the first reading the viewer receives at least 20 seconds after the page opened. That position counts as level, with z+ on top.
 
-- Keep the cube still, z+ face up, until the page has been open for 20 seconds and you have connected.
+- Keep the cube still, plain top face up, until the page has been open for 20 seconds and you have connected.
 - Disconnecting and connecting again does not reset the reference. To set it again, reload the page and connect again.
 - If the views stop matching the faces, put the cube flat on the table, reload the page and connect again.
 
@@ -55,6 +100,7 @@ The viewer measures the cube's tilt from a reference position. The reference is 
 - Tipping the cube onto one of its four sides gives x+, x-, y+ or y-. Turning it upside down gives z-.
 - Spinning the cube on the table, like turning a dial, never changes the view. Only the face on top matters.
 - The view stays the same while the same face is closest to up, so you can hold the cube at an angle.
+- To check the cube, tip it so the face labeled x+ points up. The viewer should say "x+ view". If it names another view, put the cube plain top face up, reload the page and connect again.
 
 ## Troubleshooting
 

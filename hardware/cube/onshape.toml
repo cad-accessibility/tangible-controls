@@ -17,7 +17,7 @@ id = "3ceaf96421d57106502c1ab5"
 url = "https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5"
 
 # This document is a copy of Felix Hähnlein's original, made on 2026-10-05 so
-# that a maintainer owns the source. The original may become private.
+# that a maintainer owns the source. The original is now private.
 [document.copied_from]
 name = "cube final"
 owner = "Felix Hähnlein"

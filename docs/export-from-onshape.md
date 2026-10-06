@@ -11,7 +11,7 @@ Onshape versions cannot be edited or deleted, so a version link always opens the
 
 ## The cube's Onshape document
 
-The source is [tangible-controls cube](https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5), owned by a maintainer. It is a copy of Felix Hähnlein's original document, "cube final", made on 2026-10-05 so the source does not depend on one person's account. `hardware/cube/onshape.toml` records both.
+The source is [tangible-controls cube](https://cad.onshape.com/documents/3ceaf96421d57106502c1ab5), owned by a maintainer. It is a copy of Felix Hähnlein's original document, "cube final", made on 2026-10-05 so the source does not depend on one person's account. Felix has since made the original private. `hardware/cube/onshape.toml` records both.
 
 Only the owner, or someone the owner shares the document with as "Can edit" with Share, Export and Delete, can do everything on this page. Onshape needs Delete to create versions and Share to change sharing. Before the owner leaves the project, they transfer the document to another maintainer, as GOVERNANCE.md says.
 
@@ -23,7 +23,7 @@ The owner does these once, in Onshape.
 
    ```text
    Copyright 2026 University of Washington.
-   Designed by Felix Hähnlein. Original document: https://cad.onshape.com/documents/bacc1f6ed9ff69f796727760
+   Designed by Felix Hähnlein, in his Onshape document "cube final".
 
    This source describes Open Hardware and is licensed under the CERN-OHL-P v2.
 

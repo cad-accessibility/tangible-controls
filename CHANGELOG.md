@@ -9,6 +9,13 @@ a printed part that no longer fits the previous ones, or a different face-to-vie
 
 ## [Unreleased]
 
+### Added
+*   The cube guide now describes each face by its texture and braille label, says where the power switch is, and walks through putting the cube together one step at a time. The parts list says how to tell the sensor and each half apart by touch.
+*   The print settings from the Bambu Studio project Felix Hähnlein used for the cubes in use: PLA, 0.06 mm layers, 4 walls, 15% grid infill, no supports, and how each half lies on the plate.
+
+### Changed
+*   Felix Hähnlein's original Onshape document is now private, so the docs no longer link to it. The maintainers' copy remains the public source.
+
 ## [0.1.0] - 2026-10-05
 
 ### Added
